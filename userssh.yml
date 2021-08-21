@@ -1,0 +1,20 @@
+---
+- name: Creating user with pre-setted SSH key
+  hosts: testing
+  become: yes
+
+  tasks:
+    - name: Creating user
+      user:
+        name: user1
+        state: present
+
+    - name: Creating directory
+      file:
+        path: /home/user1/.ssh
+        state: directory
+    
+    - name: Copying key to remove host
+      copy:
+        src: user1key.pub
+        dest:  /home/user1/.ssh/id_rsa.pub

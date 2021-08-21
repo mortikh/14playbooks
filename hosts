@@ -1,0 +1,2 @@
+[testing]
+mortiko.ddns.net ansible_user=morti ansible_port=2222
